@@ -4,11 +4,13 @@ var prodschema = new schema(
     {
     title:String,
     price:Number,
-    id:Number,
+   /*  pid:String, */
     image:String,
     category:String,
     location:String,
-    status:String
+    status:String,
+    seller:String,
+    addedon:Date
     }
 )
 var productssmodel = mongoose.model("Products",prodschema,"Products");
