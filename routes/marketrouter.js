@@ -8,6 +8,7 @@ var url = "mongodb+srv://reuben:1234@cluster0-fcmwh.mongodb.net/Marketplace?retr
 var categories = require("../model/category"); 
 var products = require("../model/product");
 var locations = require("../model/location")
+var users = require("../model/user")
 
 var storage =   multer.diskStorage({  
   destination: (req, file, callback)=>{  
@@ -248,4 +249,10 @@ router.get("/sellerproductsS/:user",function(req,res){
         res.send({deleted:true})
       }
   }) 
+  })
+
+  router.get("/getseller/:seller",function(req,res){
+    users.find({username:req.params.seller},function(err,result){
+        res.send(result)
+     })    
   })
